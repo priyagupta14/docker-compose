@@ -44,3 +44,13 @@ services:
     depends_on:
       - auth-service
       - be-postgres
+  frontend:
+    build:
+      dockerfile: Dockerfile
+      context: ./frontend-service
+    ports:
+      - 30001:3001
+    depends_on:
+      - auth-service
+      - be-postgres
+      - backend
